@@ -10,8 +10,8 @@ class ParticleSystem {
   constructor(x, y, r) {
     this.particles = [];
     // this.intact = true;
-    let rows = 10;
-    let cols = 10;
+    let rows = 50;
+    let cols = 50;
     for (let i = 0; i < rows * cols; i++) {
       this.addParticle(x + (i % cols) * r, y + (floor(i / rows)) * r, r);
     }
@@ -23,6 +23,9 @@ class ParticleSystem {
 
   display() {
     for (let particle of this.particles) {
+       let force = p5.Vector.random2D();
+      force.mult(1);
+      particle.applyForce(force);
       particle.display();
     }
   }
@@ -30,12 +33,11 @@ class ParticleSystem {
   shatter() {
     for (let particle of this.particles) {
       let force = p5.Vector.random2D();
-      force.mult(10);
+      force.mult(1);
       particle.applyForce(force);
     }
     // this.intact = false;
   }
-
   update() {
     for (let particle of this.particles) {
       particle.update();

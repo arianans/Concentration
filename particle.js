@@ -36,7 +36,7 @@ class Particle {
   // Method to display
   display() {
     stroke(0);
-    fill(0);
+    fill(255);
     rectMode(CENTER);
     rect(this.position.x, this.position.y, this.r, this.r);
   }
