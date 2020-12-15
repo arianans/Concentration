@@ -24,20 +24,13 @@ class ParticleSystem {
   display() {
     for (let particle of this.particles) {
        let force = p5.Vector.random2D();
-      force.mult(1);
+      force.mult(value);
       particle.applyForce(force);
       particle.display();
     }
   }
 
-  shatter() {
-    for (let particle of this.particles) {
-      let force = p5.Vector.random2D();
-      force.mult(value);
-      particle.applyForce(force);
-    }
-    // this.intact = false;
-  }
+
   update() {
     for (let particle of this.particles) {
       particle.update();

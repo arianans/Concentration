@@ -15,23 +15,17 @@ function draw() {
 
   ps.display();
   ps.update();
-}
 
+}
 
 function mousePressed() {
-  // ps.shatter();
-  if (value === 0 ) {
-    value = 1;
-  } else {
-    value = 5;
-  }
-}
 
-shatter() {
-  for (let particle of this.particles) {
-    let force = p5.Vector.random2D();
-    force.mult(value);
-    particle.applyForce(force);
+  if (value === 0 ) {
+    ps.shatter();
+    value = 1;
+    } else {
+    value = 5;
+    }
   }
-  // this.intact = false;
+    ps.shatter();
 }
